@@ -3,9 +3,9 @@ const createProduct = require("../db/productData/createProduct.js")
 const getAllProducts = require("../db/productData/getAllProducts.js")
 const getSingleProduct = require("../db/productData/getSingleProduct.js")
 
-router.get("/product", (req, res) => {
-    res.send("these are products")
-});
+// router.get("/product", (req, res) => {
+//     res.send("these are products")
+// });
 
 // post product
 router.post("/product", async (req, res, next) => {

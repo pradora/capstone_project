@@ -16,7 +16,6 @@ const createUser = async (req) => {
           admin: admin,
         //   firstName: firstName,
         //   lastName: lastName,
-        //   admin: admin,
         },
       });
     } catch (err) {

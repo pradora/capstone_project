@@ -1,7 +1,9 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-async function createToken(userId, token, expirationDate, currentDate) {
+const createToken = async (userId, token, expirationDate, currentDate) => {
+  console.log("-------In createToken.js----------")
+  console.log("token: ", token);
   console.log("id: ", userId);
   console.log("expiration: ", expirationDate);
   try {
@@ -11,13 +13,16 @@ async function createToken(userId, token, expirationDate, currentDate) {
         updatedAt: currentDate,
         valid: true,
         expiration: expirationDate,
+        user: { connect: { id: userId } },
         tokens: token,
-        user: { connect: { username: username } },
       },
     });
+
+    console.log("Token created and stored successfully in the database.");
   } catch (error) {
+    console.error("Error storing token in the database:", error);
     throw error;
   }
-}
+};
 
 module.exports = createToken;

@@ -87,7 +87,7 @@ model Token {
   valid      Boolean  @default(true)
   expiration DateTime
   tokens     String
-  user       User?    @relation(fields: [username], references: [username])
+  user       User    @relation(fields: [username], references: [username])
   username   String   @unique
 }
 

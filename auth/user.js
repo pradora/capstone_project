@@ -18,7 +18,7 @@ router.get("/user", (req, res) => {
 // register new user
 router.post("/user/register", async (req, res, next) => {
     try {
-      const user = await createNewUser(req);
+      const user = await createUser(req);
       res.status(201).send(user);
     } catch (err) {
       next(err);
