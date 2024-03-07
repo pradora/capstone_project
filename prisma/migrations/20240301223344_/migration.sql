@@ -1,8 +1,8 @@
 -- CreateTable
 CREATE TABLE "User" (
-    "id" SERIAL NOT NULL,
-    "username" TEXT,
-    "email" TEXT,
+    "id" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "username" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "admin" BOOLEAN NOT NULL DEFAULT false,
 
@@ -30,7 +30,7 @@ CREATE TABLE "Token" (
     "valid" BOOLEAN NOT NULL DEFAULT true,
     "expiration" TIMESTAMP(3) NOT NULL,
     "tokens" TEXT NOT NULL,
-    "username" TEXT NOT NULL,
+    "userId" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Token_pkey" PRIMARY KEY ("id")
 );
@@ -41,8 +41,5 @@ CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
--- CreateIndex
-CREATE UNIQUE INDEX "Token_username_key" ON "Token"("username");
-
 -- AddForeignKey
-ALTER TABLE "Token" ADD CONSTRAINT "Token_username_fkey" FOREIGN KEY ("username") REFERENCES "User"("username") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Token" ADD CONSTRAINT "Token_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

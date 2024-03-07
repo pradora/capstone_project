@@ -2,10 +2,10 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const createIfNotExists = require("./createIfNotExists.js");
-const hashPassword = require("./hashPassword.js")
+const hashThing = require("./hashThing.js")
 
 const main = async () => {
-    const hashedPassword = await hashPassword("password123");
+    const hashedPassword = await hashThing("password123");
     const users = [
             
         {
