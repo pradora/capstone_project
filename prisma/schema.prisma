@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  DateTime @id @default(now())
+  username            String  @unique
+  email               String  @unique
+  password            String
+  admin               Boolean @default(false)
+  // shippingAddress     String?
+  // paymentInformation  String?
+  // orders              Order[]
+  // cart                Cart[]
+  // cartItem            CartItem[]
+  token               Token[]
+}
+
+model Product {
+  id          Int         @id @default(autoincrement())
+  name        String?
+  description String?
+  price       Float?
+  image       String?
+  class       String?
+  stock       Int
+//   carts       Cart[]
+//   cartItems   CartItem[]
+//   OrderItem   OrderItem[]
+}
+
+// model Order {
+//   id          Int         @id @default(autoincrement())
+//   userId      Int
+//   user        User        @relation(fields: [userId], references: [id])
+//   orderDate   DateTime    @default(now())
+//   totalAmount Float
+//   status      String
+//   orderItems  OrderItem[]
+// }
+
+// model OrderItem {
+//   id           Int     @id @default(autoincrement())
+//   orderId      Int
+//   order        Order   @relation(fields: [orderId], references: [id])
+//   productId    Int
+//   product      Product @relation(fields: [productId], references: [id])
+//   quantity     Int
+//   priceAtOrder Float
+// }
+
+// model Cart {
+//   id        Int     @id @default(autoincrement())
+//   user      User    @relation(fields: [userId], references: [id])
+//   userId    Int
+//   product   Product @relation(fields: [productId], references: [id])
+//   productId Int
+//   quantity  Int     @default(1)
+// }
+
+// model CartItem {
+//   id        Int     @id @default(autoincrement())
+//   user      User    @relation(fields: [userId], references: [id])
+//   userId    Int
+//   product   Product @relation(fields: [productId], references: [id])
+//   productId Int
+//   quantity  Int     @default(1)
+
+//   @@unique([userId, productId])
+// }
+
+model Token {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  valid      Boolean  @default(true)
+  expiration DateTime
+  tokens     String
+  user       User     @relation(fields: [userId], references: [id])
+  userId     DateTime
+}
+
+// model Coupon {
+//   id             Int      @id @default(autoincrement())
+//   code           String   @unique
+//   discountAmount Float
+//   expirationDate DateTime
+// }
