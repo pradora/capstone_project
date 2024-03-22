@@ -7,17 +7,19 @@ const hashThing= require("../seedData/hashThing.js")
 const createUser = async (req) => {
     const { username, email, password, admin} = req.body;
     const hashedPassword = await hashThing(password)
+
     try {
       return await prisma.user.create({
         data: {
           username: username,
           password: hashedPassword,
           email: email,
-          admin: admin,
+          admin: false,
         //   firstName: firstName,
         //   lastName: lastName,
         },
       });
+      
     } catch (err) {
       throw err;
     }

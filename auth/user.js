@@ -46,7 +46,7 @@ router.post("/user/register", async (req, res, next) => {
     const existingUserByUsername = await getUserBy(username);
     const existingUserByEmail = await getUserBy(email);
     if (existingUserByUsername) {
-      res.status(400).send({ error: "Username already exists." });
+      res.status(409).send({ error: "Username already exists." });
       return;
     }
     if (existingUserByEmail) {
@@ -59,6 +59,22 @@ router.post("/user/register", async (req, res, next) => {
     res.status(201).send(user);
   } catch (err) {
     next(err);
+  }
+});
+
+
+// get single user
+router.get("/user/:username", async (req, res, next) => {
+  const username = req.params.username;
+  try {
+    const user = await getUserBy(username);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    return res.json({ user });
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    return res.status(500).json({ message: "Internal server error" });
   }
 });
 

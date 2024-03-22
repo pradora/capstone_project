@@ -3,10 +3,10 @@ const prisma = new PrismaClient({
   errorFormat: 'pretty',
 })
 
-const { dateAndTimeRegex, passwordRegex, usernameRegex, emailRegex, tokenRegex } = require("./regex.js");
+const { idRegex, passwordRegex, usernameRegex, emailRegex, tokenRegex } = require("./regex.js");
 
 const getUserBy = async (input) => {
-  if (dateAndTimeRegex.test(input)) {
+  if (idRegex.test(input)) {
     try {
       return await prisma.user.findUnique({
         where: {

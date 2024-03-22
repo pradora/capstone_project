@@ -15,11 +15,12 @@ const cleanupTokensForUser = async(userId) => {
 
 const loginUser1 = async(username, password) => {
     const user = await getUserBy(username, password);
+    console.log(user)
   
     if (!user) {
-      throw new Error("User not found");
+      throw new Error("User not found"),console.log(user);
     }
-
+    
     const passwordMatch = await bcrypt.compare(password, user.password);
   
     if (!passwordMatch) {

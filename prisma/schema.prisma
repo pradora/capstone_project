@@ -90,10 +90,3 @@ model Token {
   user       User     @relation(fields: [userId], references: [id])
   userId     DateTime
 }
-
-// model Coupon {
-//   id             Int      @id @default(autoincrement())
-//   code           String   @unique
-//   discountAmount Float
-//   expirationDate DateTime
-// }
