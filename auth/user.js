@@ -64,19 +64,19 @@ router.post("/user/register", async (req, res, next) => {
 
 
 // get single user
-router.get("/user/:username", async (req, res, next) => {
-  const username = req.params.username;
-  try {
-    const user = await getUserBy(username);
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-    return res.json({ user });
-  } catch (error) {
-    console.error("Error fetching user:", error);
-    return res.status(500).json({ message: "Internal server error" });
-  }
-});
+// router.get("/user/:username", async (req, res, next) => {
+//   const username = req.params.username;
+//   try {
+//     const user = await getUserBy(username);
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+//     return res.json({ user });
+//   } catch (error) {
+//     console.error("Error fetching user:", error);
+//     return res.status(500).json({ message: "Internal server error" });
+//   }
+// });
 
 // user login
 router.post("/user/login", async (req, res, next) => {
