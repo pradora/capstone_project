@@ -1,5 +1,5 @@
-const {format} = require('date-fns');
-const {v4: uuid} = require('uuid');
+const { format } = require('date-fns');
+const { v4: uuid } = require('uuid');
 
 const fs = require('fs')
 const fsPromises = require('fs').promises;
@@ -12,12 +12,13 @@ const logEvents = async (message, logName) => {
     const logItem = `${dateTime}\t${uuid()}\t${message}\n`
     console.log(logItem)
     try {
-        if (!fs.existsSync(path.join(__dirname,'..', 'logs'))) {
-            await fsPromises.mkdir(path.join(__dirname, '..' ,'logs'))
+        if (!fs.existsSync(path.join(__dirname, '..', 'logs'))) {
+            await fsPromises.mkdir(path.join(__dirname, '..', 'logs'))
         }
-     
-        await fsPromises.appendFile(path.join(__dirname, '..' ,'logs', logName), logItem)
+
+        await fsPromises.appendFile(path.join(__dirname, '..', 'logs', logName), logItem)
     } catch (error) {
+        
         console.error(error)
     }
 }
@@ -25,6 +26,10 @@ const logger = (req, res, next) => {
     logEvents(`${req.method}\t${req.headers.origin}\t${req.url}\t`, 'reqLog.txt')
     console.log(`${req.method} ${req.path}`)
     next();
-  }
+}
 
-module.exports = {logger , logEvents};
+
+
+// logEvents('Server running at port 3000', 'eventLog.txt');
+
+module.exports = { logger, logEvents };

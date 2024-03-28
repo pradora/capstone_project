@@ -1,17 +1,17 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT||3000;
+const fs = require('fs')
+
 const path = require("path")
 const cors = require("cors");
 const {logger} = require('./middleware/logEvents')
 const errorHandler = require('./middleware/errorHandler')
-
-const fs = require('fs')
+const PORT = process.env.PORT||3000;
 
 // custom middleware logger
 app.use(logger)
 
-// built-in middleware to handle urlencoded data
+// built-in middleware to handle urlencoded data,
 // form data: "content-type: application/x-www-form-urlenoded"
 app.use(express.urlencoded({extended:false}))
 
@@ -19,12 +19,14 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json());
 
 // serve static files
-app.use(express.static(path.join(__dirname, '/public')))
+app.use('/', express.static(path.join(__dirname, '/public')))
+// 
+app.use('/subdir', express.static(path.join(__dirname, 'public')))
 
 // third-party middleware, cross origin resource sharing
 const whitelist = ['http://localhost:3000', 'http://127.0.0.1:5500', 'http://www.sitedomain.com']
 const corsOptions = {
-  origins: (origin, callback) => {        //remove !origin after development
+  origin: (origin, callback) => {        //remove || !origin after development
     if (whitelist.indexOf(origin) !== -1 || !origin) {
       callback(null, true)
     } else {
@@ -35,22 +37,26 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
+
+
+
+
+
+
+
+
 // backend routes
-app.use("/api", require("./api"));
-app.use("/auth", require("./auth"));
-
-// exit on uncaught errors
-process.on("uncaughtException", err => {
-  console.error(`There was an uncaught error: ${err}`)
-
-  process.exit(1);
-})
+// app.use("/api", require("./routes/api"));
+// app.use("/auth", require("./routes/auth"));
+app.use('/', require('./routes/root'))
+app.use('/subdir', require('./routes/subdir'));
+app.use('/employees', require('./routes/api/employees'));
 
 
-
+// app.use('/', require('./robots.js'))
 // Define a router for serving robots.txt
-const router = express.Router();
-router.get("/robots.txt", (req, res) => {
+//const router = express.Router();
+app.get("/robots.txt", (req, res) => {
   try {
     const filePath = path.join(__dirname, "./public/text/", "robots.txt");
     const rs = fs.createReadStream(filePath, { encoding: "utf8" });
@@ -69,8 +75,6 @@ router.get("/robots.txt", (req, res) => {
   }
 });
 
-// Mount the router on the root path
-app.use("/", router);
 
 app.all('*', (req, res) =>{
   res.status(404);

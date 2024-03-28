@@ -1,7 +1,9 @@
 const router = require("express").Router()
-const createProduct = require("../db/productData/createProduct.js")
-const getAllProducts = require("../db/productData/getAllProducts.js")
-const getSingleProduct = require("../db/productData/getSingleProduct.js")
+const createProduct = require("../../db/productData/createProduct.js")
+const getAllProducts = require("../../db/productData/getAllProducts.js")
+const getSingleProduct = require("../../db/productData/getSingleProduct.js")
+
+
 
 // router.get("/product", (req, res) => {
 //     res.send("these are products")

@@ -8,10 +8,10 @@ const {
   createUser,
   //   updateUser,
   //   deleteUser,
-} = require("../db/userData/createUser");
-const loginUser1 = require("../db/userData/loginUser1")
-const getUserBy = require("../db/userData/getUserBy")
-const { emailRegex, passwordRegex, usernameRegex } = require("../db/userData/regex.js");
+} = require("../../db/userData/createUser");
+const loginUser1 = require("../../db/userData/loginUser1")
+const getUserBy = require("../../db/userData/getUserBy")
+const { emailRegex, passwordRegex, usernameRegex } = require("../../db/userData/regex.js");
 
 router.get("/user", (req, res) => {
   res.send("this is user")

@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const router = require("express").Router();
 
-// router.get("/robots.txt", (req, res) => {
+router.get("/robots.txt", (req, res) => {
 //     try {
 //         const filePath = path.join(__dirname, "./public/text/", "robots.txt");
 //         const rs = fs.createReadStream(filePath, { encoding: "utf8" });

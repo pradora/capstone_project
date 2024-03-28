@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon main.js",
-    "start": "node main.js",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
     "test": "jest",
     "seed": "node db/seedData/seed.js"
   },
