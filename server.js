@@ -4,58 +4,59 @@ const fs = require('fs')
 
 const path = require("path")
 const cors = require("cors");
-const {logger} = require('./middleware/logEvents')
+const corsOptions = require('./config/corsOptions')
+const { logger } = require('./middleware/logEvents')
 const errorHandler = require('./middleware/errorHandler')
-const PORT = process.env.PORT||3000;
+const verifyJWT = require('./middleware/verifyJWT')
+const cookieParser = require('cookie-parser');
+const credentials = require("./middleware/credentials");
+const PORT = process.env.PORT || 3000;
 
 // custom middleware logger
 app.use(logger)
 
+// Handle options credentials check -before CORS!
+// and fetch cookies credentails requirement
+app.use(credentials)
+
+//cross origin resource sharing
+app.use(cors(corsOptions));
+
 // built-in middleware to handle urlencoded data,
 // form data: "content-type: application/x-www-form-urlenoded"
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: false }))
 
 // build-in middleware for json
 app.use(express.json());
+
+//middlware for cookies
+app.use(cookieParser())
 
 // serve static files
 app.use('/', express.static(path.join(__dirname, '/public')))
 // 
 app.use('/subdir', express.static(path.join(__dirname, 'public')))
 
-// third-party middleware, cross origin resource sharing
-const whitelist = ['http://localhost:3000', 'http://127.0.0.1:5500', 'http://www.sitedomain.com']
-const corsOptions = {
-  origin: (origin, callback) => {        //remove || !origin after development
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true)
-    } else {
-      callback (new Error('Not allowed by CORS'))
-    }
-  },
-  optionsSuccessStatus: 200
-}
-app.use(cors(corsOptions));
-
-
-
-
-
-
-
 
 
 // backend routes
-// app.use("/api", require("./routes/api"));
+app.use("/product", require("./routes/api/product"));
+app.use("/register", require("./routes/api/register"));
+app.use("/auth", require("./routes/api/auth"));
+app.use("/refresh", require("./routes/api/refresh"));
+app.use("/logout", require("./routes/api/logout"));
+
+//  app.use("/api", require("./routes/api"));
 // app.use("/auth", require("./routes/auth"));
 app.use('/', require('./routes/root'))
 app.use('/subdir', require('./routes/subdir'));
+
+// routes that need verification
+app.use(verifyJWT)
 app.use('/employees', require('./routes/api/employees'));
 
 
-// app.use('/', require('./robots.js'))
-// Define a router for serving robots.txt
-//const router = express.Router();
+
 app.get("/robots.txt", (req, res) => {
   try {
     const filePath = path.join(__dirname, "./public/text/", "robots.txt");
@@ -76,16 +77,16 @@ app.get("/robots.txt", (req, res) => {
 });
 
 
-app.all('*', (req, res) =>{
-  res.status(404);
-  if (req.accepts('html')){
-    res.sendFile(path.join(__dirname, 'views', '404.html'));
-  } else if (req.accepts('json')) {
-    res.json ({error: "404 Not Found"})
-  } else {
-    res.type('txt').send("404 Not Found")
-  }
-})
+// app.all('*', (req, res) => {
+//   res.status(404);
+//   if (req.accepts('html')) {
+//     res.sendFile(path.join(__dirname, 'views', '404.html'));
+//   } else if (req.accepts('json')) {
+//     res.json({ error: "404 Not Found" })
+//   } else {
+//     res.type('txt').send("404 Not Found")
+//   }
+// })
 
 // exit on uncaught errors
 process.on("uncaughtException", err => {

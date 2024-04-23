@@ -2,7 +2,7 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const createIfNotExists = require("./createIfNotExists.js");
-const hashThing = require("./hashThing.js")
+const hashThis = require("./hashThis.js")
 const fs = require('fs');
 
 const convertImg = (imgPath) => {
@@ -13,7 +13,7 @@ const convertImg = (imgPath) => {
 
 
 const main = async () => {
-    const hashedPassword = await hashThing("password123");
+    const hashedPassword = await hashThis("password123");
     const users = [
             
         {

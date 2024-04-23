@@ -4,3 +4,325 @@
 20240327	22:56:54	3c6797e2-5ed8-494f-8718-7b9dd4ce0467	Error: Not allowed by CORS
 20240327	22:58:07	eb1b46d0-1d0e-479e-8c91-5417f66ad3b9	Error: Not allowed by CORS
 20240327	22:59:25	59efa236-a100-4137-bd94-0666d408e0e3	Error: Not allowed by CORS
+20240418	15:54:22	7e008080-2811-4f64-8647-45ed3d838140	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	15:54:57	59cc7de5-fbe1-445c-b7d3-1c4f9cb29a67	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	15:56:52	b7666a45-9dac-402b-8b3f-b18fea156be0	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	15:57:48	6f5737a6-709a-488a-862a-0888be1ff3e2	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	16:00:57	b19ccd67-81da-4e8c-8fe5-94d0157d8d72	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	16:03:49	09c912f0-84df-4b64-a8f1-4ca51b62e7d7	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	16:03:55	260ec34f-348a-4e68-b44f-def824cbdbbb	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	16:03:58	b19807bf-919e-4b89-8273-7c94fb411325	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	16:04:12	a4fe684e-74d8-424e-a211-b5d83d31f63c	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	16:19:48	28022260-448d-4621-a19d-d1edac6f3a0c	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	16:19:53	e2d25558-a62f-4842-9c0b-ee30efc3752c	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	16:20:26	437bc33e-80c0-4c58-96e0-e82991f1986b	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	16:20:30	41867eff-a5b0-4939-b353-5e2923156261	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.
+20240418	16:21:01	c638bdb4-fc32-4f02-936a-df8ade74e104	PrismaClientValidationError: 
+Invalid `prisma.product.findFirst()` invocation in
+/home/sauske/Projects/capstone/capstone_server/db/productData/getSingleProduct.js:7:35
+
+  4 // get product by id
+  5 const getSingleProduct = async (id) => {
+  6     try {
+→ 7       return await prisma.product.findFirst({
+            where: {
+          +   id: {
+          +     equals: Int | IntFieldRefInput,
+          +     in: Int[] | ListIntFieldRefInput,
+          +     notIn: Int[] | ListIntFieldRefInput,
+          +     lt: Int | IntFieldRefInput,
+          +     lte: Int | IntFieldRefInput,
+          +     gt: Int | IntFieldRefInput,
+          +     gte: Int | IntFieldRefInput,
+          +     not: Int | NestedIntFilter
+          +   }
+            }
+          })
+
+Argument `id` is missing.

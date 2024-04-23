@@ -1,35 +1,27 @@
+// console.log(__dirname);
 const express = require('express')
 const router = express.Router();
-const path = require ('path')
-const data = {};
-data.employees = require('../../db/employees.json')
+
+const path = require('path')
+const { 
+    getAllEmployees,
+    createNewEmployee,
+    updateEmployee,
+    deleteEmployee,
+    getEmployee
+} = require("../../controllers/employeesController")
+const  {Admin, Editor} = require('../../config/roles_list');
+const verifyRoles = require('../../middleware/verifyRoles');
+
 
 router.route('/')
-    .get((req,res) => {
-        res.json(data.employees);
-    })
+    .get( getAllEmployees)
 
-    .post((req, res) => {
-        res.json({
-            "firstname":req.body.firstname,
-            "lastname":req.body.lastname
-        })
-    })
-    .put((req,res) => {
-        res.json({
-            "firstname":req.body.firstname,
-            "lastname":req.body.lastname
-        })
-    })
-    .delete((req,res) => {
-        res.json ({"id": req.body.id})
-    })
+    .post(verifyRoles(Admin, Editor),createNewEmployee)
+    .put(verifyRoles(Admin, Editor),updateEmployee)
+    .delete(verifyRoles(Admin),deleteEmployee)
 
 router.route('/:id')
-    .get((req, res) => {
-        res.json(
-            { 'id': req.params.id }
-        )
-    })
+    .get(getEmployee)
 
-module.exports = router
+module.exports = router;

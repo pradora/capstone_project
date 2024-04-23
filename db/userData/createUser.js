@@ -1,12 +1,12 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
-const hashThing= require("../seedData/hashThing.js")
+const hashThis= require("../seedData/hashThis.js")
 
 
 // create new user
 const createUser = async (req) => {
     const { username, email, password, admin} = req.body;
-    const hashedPassword = await hashThing(password)
+    const hashedPassword = await hashThis(password)
 
     try {
       return await prisma.user.create({

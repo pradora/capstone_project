@@ -7,7 +7,7 @@ const myEmitter = new MyEmitter();
 // add listener for log events
 myEmitter.on('log', (msg, fileName) => logEvents(msg, fileName));
 const bcrypt = require('bcrypt');
-const hashThing = async (thing) => {
+const hashThis = async (thing) => {
   const saltRounds = 10;
   try {
     const hashedThing = await bcrypt.hash(thing, saltRounds);
@@ -19,5 +19,5 @@ const hashThing = async (thing) => {
   }
 };
 
-module.exports = hashThing;
+module.exports = hashThis;
 
